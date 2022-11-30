@@ -22,9 +22,7 @@ version: 8.5.0
 
 # Labels that will be applied to Elasticsearch.
 #
-labels:
-  openshift.io/cluster-monitoring: 'true'
-  cluster-name: elasticsearch-dxr
+labels: {}
 
 # Annotations that will be applied to Elasticsearch.
 #
@@ -73,12 +71,8 @@ remoteClusters: {}
 #
 nodeSets:
 - name: default
-  count: 3
+  count: 1
   config:
-    roles:
-        - client
-        - data
-        - master
     # Comment out when setting the vm.max_map_count via initContainer, as these are mutually exclusive.
     # For production workloads, it is strongly recommended to increase the kernel setting vm.max_map_count to 262144
     # and leave node.store.allow_mmap unset.
